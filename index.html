@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF‑8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Endangered Plants of My Farm</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-green-50 text-gray-800 p-4 font-sans">
   <h1 class="text-3xl font-bold mb-6">🌿 Endangered Plants of My Farm</h1>
-  <div id="plant-list" class="grid gap-4 sm:grid-cols-2 md:grid-cols-3"></div>
+  <div id="plant-list" class="grid gap-6 sm:grid-cols-1 md:grid-cols-2"></div>
 
   <script>
     const plants = [
@@ -17,35 +17,40 @@
         local: "Kunta Nerale",
         use: "Edible fruit",
         type: "Tree",
-        status: "Endangered"
+        status: "Endangered",
+        description: "A fruit‐bearing tree with purple berries that children climbed and birds loved. Now rare, its seeds don’t germinate easily and groves are vanishing.",
+        image: "https://efloraofindia.com/wp-content/uploads/2020/10/Type14_DSC07010.JPG"
       },
       {
         name: "Hopea parviflora",
         local: "Bovu mara",
         use: "Timber, erosion control",
         type: "Tree",
-        status: "Endangered"
+        status: "Endangered",
+        description: "Known as South Indian Mahogany, this ironwood once built bridges, boats, and even railway sleepers. Today, it is hard to find.",
+        image: "https://example.com/hopea.jpg"
       },
       {
         name: "Mammea suriga",
         local: "Surige",
-        use: "Fragrant flower used in rituals",
+        use: "Fragrant flower for rituals",
         type: "Tree",
-        status: "Endemic"
+        status: "Endemic",
+        description: "Its golden blossoms smell divine. Traditionally used in festivals on the Karnataka coast and now increasingly rare.",
+        image: "https://example.com/mammea.jpg"
       }
     ];
 
     const container = document.getElementById("plant-list");
-
-    plants.forEach(plant => {
+    plants.forEach(p => {
       const card = document.createElement("div");
       card.className = "bg-white p-4 rounded-xl shadow";
       card.innerHTML = `
-        <h2 class="text-xl font-semibold">${plant.name}</h2>
-        <p><strong>Local Name:</strong> ${plant.local}</p>
-        <p><strong>Use:</strong> ${plant.use}</p>
-        <p><strong>Type:</strong> ${plant.type}</p>
-        <p><strong>Status:</strong> <span class="text-red-500 font-medium">${plant.status}</span></p>
+        <img src="${p.image}" alt="${p.name}" class="w-full h-auto rounded mb-2">
+        <h2 class="text-xl font-semibold">${p.name}</h2>
+        <p><em>Local name:</em> ${p.local}</p>
+        <p class="mb-2">${p.description}</p>
+        <p><strong>Status:</strong> <span class="text-red-500">${p.status}</span></p>
       `;
       container.appendChild(card);
     });
