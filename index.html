@@ -1,75 +1,176 @@
-const plants = [
-  {
-    name: "Syzygium caryophyllatum",
-    local: "Kunta Nerale",
-    use: "Edible fruit",
-    type: "Tree",
-    status: "Endangered",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Syzygium_caryophyllatum_at_Thiruvananthapuram.jpg",
-    description: "These little fruits shift from green to pink to deep violet—a fruit that teaches patience. But it’s fading now, with poor seed regeneration and vanishing groves."
-  },
-  
-  {
-    name: "Myristica malabarica",
-    local: "Kanage",
-    use: "Spice, medicinal",
-    type: "Tree",
-    status: "Vulnerable",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Myristica_malabarica-3-mundanthurai-tirunelveli-India.jpg/1280px-Myristica_malabarica-3-mundanthurai-tirunelveli-India.jpg",
-    description: "Produces rampatri, a liver-protective spice. Supports Myristica swamp ecosystems now under threat."
-  },
-  {
-    name: "Pterocarpus santalinus",
-    local: "Rakta Chandan",
-    use: "Medicinal, religious, cosmetic",
-    type: "Tree",
-    status: "Endangered",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/28/Pterocarpus_santalinus_in_Talakona_forest%2C_AP_W_IMG_8099.jpg",
-    description: "Used in Ayurveda and pooja rituals. Illegal logging threatens its survival."
-  },
-  {
-    name: "Memecylon umbellatum",
-    local: "Anjan",
-    use: "Shade, bee forage",
-    type: "Tree",
-    status: "Endangered",
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/61/Memecylon_umbellatum_Blue_Flower_DSCN2024.jpg",
-    description: "With purple blooms, it attracts pollinators and supports forest diversity."
-  },
-  {
-    name: "Canarium strictum",
-    local: "Black dhup",
-    use: "Resin, ecological",
-    type: "Tree",
-    status: "Vulnerable",
-    image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Canarium_strictum.jpg",
-    description: "Resin used in incense. Over-tapping and forest degradation threaten this tree."
-  },
-  {
-    name: "Aporosa cardiosperma",
-    local: "Salle mara",
-    use: "Wildlife food",
-    type: "Tree",
-    status: "Vulnerable",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Aporosa_lindleyana2.jpg",
-    description: "Feeds forest birds and insects. Vulnerable to fire and habitat loss."
-  },
-  {
-    name: "Mammea suriga",
-    local: "Surige",
-    use: "Ritual flowers, fragrance",
-    type: "Tree",
-    status: "Endemic",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mammea_suriga_%283359822701%29.jpg/1280px-Mammea_suriga_%283359822701%29.jpg",
-    description: "Fragrant flowers worn like jewels. Sacred and culturally significant."
-  },
-  {
-    name: "Garcinia indica (Kokum)",
-    local: "Punarpuli",
-    use: "Souring agent, drinks",
-    type: "Tree",
-    status: "Common",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Kokum_Plant.jpg/1280px-Kokum_Plant.jpg",
-    description: "Used in kokum sherbet, chutneys, and curries. Bright fruits with culinary and cooling value."
-  }
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A free app to learn about endangered and endemic plants from a Western Ghats farm. Explore local names, uses, images, and conservation status.">
+  <title>Endangered Plants of My Farm</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background: #f7f9f8;
+      color: #333;
+    }
+
+    header {
+      background: #2e7d32;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.01);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0;
+    }
+
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 0.8rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Endangered Plants from My Farm</h1>
+    <p>Know their names, uses, stories—and why they matter.</p>
+  </header>
+
+  <div class="container" id="plant-list"></div>
+
+  <footer>Made with 🌱 in the Western Ghats</footer>
+
+  <script>
+    const plants = [
+      {
+        name: "Syzygium caryophyllatum",
+        local: "Kunta Nerale",
+        use: "Edible fruit",
+        type: "Tree",
+        status: "Endangered",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Syzygium_caryophyllatum_06.JPG/250px-Syzygium_caryophyllatum_06.JPG",
+        description: "These little fruits shift from green to pink to deep violet—a fruit that teaches patience. But it’s fading now, with poor seed regeneration and vanishing groves."
+      },
+      {
+        name: "Myristica malabarica",
+        local: "Kanage",
+        use: "Spice, medicinal",
+        type: "Tree",
+        status: "Vulnerable",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Myristica_malabarica-3-mundanthurai-tirunelveli-India.jpg/1280px-Myristica_malabarica-3-mundanthurai-tirunelveli-India.jpg",
+        description: "Produces rampatri, a liver-protective spice. Supports Myristica swamp ecosystems now under threat."
+      },
+      {
+        name: "Pterocarpus santalinus",
+        local: "Rakta Chandan",
+        use: "Medicinal, religious, cosmetic",
+        type: "Tree",
+        status: "Endangered",
+        image: "https://upload.wikimedia.org/wikipedia/commons/2/28/Pterocarpus_santalinus_in_Talakona_forest%2C_AP_W_IMG_8099.jpg",
+        description: "Used in Ayurveda and pooja rituals. Illegal logging threatens its survival."
+      },
+      {
+        name: "Memecylon umbellatum",
+        local: "Anjan",
+        use: "Shade, bee forage",
+        type: "Tree",
+        status: "Endangered",
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/61/Memecylon_umbellatum_Blue_Flower_DSCN2024.jpg",
+        description: "With purple blooms, it attracts pollinators and supports forest diversity."
+      },
+      {
+        name: "Canarium strictum",
+        local: "Black dhup",
+        use: "Resin, ecological",
+        type: "Tree",
+        status: "Vulnerable",
+        image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Canarium_strictum.jpg",
+        description: "Resin used in incense. Over-tapping and forest degradation threaten this tree."
+      },
+      {
+        name: "Aporosa cardiosperma",
+        local: "Salle mara",
+        use: "Wildlife food",
+        type: "Tree",
+        status: "Vulnerable",
+        image: "https://upload.wikimedia.org/wikipedia/commons/3/3b/Aporosa_lindleyana2.jpg",
+        description: "Feeds forest birds and insects. Vulnerable to fire and habitat loss."
+      },
+      {
+        name: "Mammea suriga",
+        local: "Surige",
+        use: "Ritual flowers, fragrance",
+        type: "Tree",
+        status: "Endemic",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mammea_suriga_%283359822701%29.jpg/1280px-Mammea_suriga_%283359822701%29.jpg",
+        description: "Fragrant flowers worn like jewels. Sacred and culturally significant."
+      },
+      {
+        name: "Garcinia indica",
+        local: "Punarpuli",
+        use: "Souring agent, drinks",
+        type: "Tree",
+        status: "Common",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Kokum_Plant.jpg/1280px-Kokum_Plant.jpg",
+        description: "Used in kokum sherbet, chutneys, and curries. Bright fruits with culinary and cooling value."
+      }
+    ];
+
+    const container = document.getElementById("plant-list");
+
+    plants.forEach(plant => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${plant.image}" alt="${plant.name}">
+        <h3>${plant.name} <span style="font-weight:normal">(${plant.local})</span></h3>
+        <p><strong>Use:</strong> ${plant.use}</p>
+        <p><strong>Type:</strong> ${plant.type}</p>
+        <p><strong>Status:</strong> ${plant.status}</p>
+        <p>${plant.description}</p>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
